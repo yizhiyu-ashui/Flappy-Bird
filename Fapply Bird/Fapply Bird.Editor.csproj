@@ -278,12 +278,6 @@
     <Reference Include="PlayMakerEditorResources">
       <HintPath>Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
     </Reference>
-    <Reference Include="PlayMakerEditor.zh-TW.resources">
-      <HintPath>Assets/PlayMaker/Editor/zh-TW/PlayMakerEditor.zh-TW.resources.dll</HintPath>
-    </Reference>
-    <Reference Include="PlayMaker">
-      <HintPath>Assets/Plugins/PlayMaker/PlayMaker.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/Users/Administrator/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -313,7 +307,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\iTween\PlayMaker\Editor\iTweenMoveToActionEditor.cs" />
     <Compile Include="Assets\PlayMaker\Actions\Editor\GetDistanceEditor.cs" />
     <Compile Include="Assets\PlayMaker\Actions\Editor\LookAtActionEditor.cs" />
     <Compile Include="Assets\PlayMaker\Actions\Editor\MoveTowardsActionEditor.cs" />
@@ -353,7 +346,6 @@
     <None Include="Assets\PlayMaker\Resources\PlayMakerAssemblies.txt" />
     <None Include="Assets\PlayMaker\Templates\readme.txt" />
     <None Include="Assets\PlayMaker\Versions\readme.txt" />
-    <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
