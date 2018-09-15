@@ -293,8 +293,8 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Ground.cs" />
     <Compile Include="Assets\Scripts\MonoSingle.cs" />
-    <Compile Include="Assets\Scripts\Obstacle.cs" />
-    <Compile Include="Assets\Scripts\pipe.cs" />
+    <Compile Include="Assets\Scripts\ObstacleCtrl.cs" />
+    <Compile Include="Assets\Scripts\Pipe.cs" />
     <Compile Include="Assets\Scripts\TAG.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
