@@ -8,6 +8,7 @@ TagManager:
   - bird
   - upObstacle
   - downObstacle
+  - Pipe
   layers:
   - Default
   - TransparentFX

@@ -9,12 +9,15 @@ public class Bird : MonoBehaviour
 
     private Rigidbody2D rigidbody;
     private Animator animator;
+    private AudioSource audio;
+    private int score;  //得分
 
 	void Start ()
 	{
 	    rigidbody = this.GetComponent<Rigidbody2D>();
 	    animator = this.GetComponent<Animator>();
-	}
+	    audio = this.GetComponent<AudioSource>();
+    }
 	
 	void Update () {
 
@@ -40,16 +43,29 @@ public class Bird : MonoBehaviour
         if (collision.gameObject.tag == TAG.Ground)
         {
             Debug.Log("碰到地板了");
+            GameManager.Instance.SoundPause();
             GameManager.Instance.isMove = false;
             animator.SetBool("isFly", false);
         }else if (collision.gameObject.tag == TAG.UpObstacle || collision.gameObject.tag == TAG.DownObstacle)
         {
             //TODO 游戏结束处理
             Debug.Log("游戏结束");
+            GameManager.Instance.SoundPlay(Sound.Hit);
             GameManager.Instance.isOver = true;
             animator.SetBool("isFly", false);
+
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == TAG.Point)
+        {
+            //TODO 碰到得分板，加分处理
+            Debug.Log("得分：" + (++score));
+            SoundPlay(Sound.Point);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -57,7 +73,13 @@ public class Bird : MonoBehaviour
         Debug.Log("飞起来了");
         GameManager.Instance.isMove = true;
         animator.SetBool("isFly", true);
-       
+        GameManager.Instance.SoundPlay(Sound.Fly);
     }
 
+    public void SoundPlay(string clipName)
+    {
+        AudioClip clip = Resources.Load<AudioClip>("sound/" + clipName);
+        audio.clip = clip;
+        audio.Play();
+    }
 }
