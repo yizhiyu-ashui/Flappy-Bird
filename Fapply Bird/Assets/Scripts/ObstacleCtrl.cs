@@ -56,6 +56,77 @@ public class ObstacleCtrl : MonoBehaviour {
             pipe = Instantiate(pipePrefab, this.transform);
             pipe.transform.localPosition = new Vector3(transform.GetChild(transform.childCount - 2).localPosition.x + x, 0, 0);
             spawnNum--;
+            switch (GameManager.Instance.rank)
+            {
+                case 1:
+                    float num = Random.Range(0.0f, 10.0f);
+                    if (num < 8.0f)
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Static;
+                        break;
+                    }
+                    else
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Rise;
+                        break;
+                    }
+                case 2:
+                case 3:
+                    num = Random.Range(0.0f, 10.0f);
+                    if (num < 5.0f)
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Static;
+                        break;
+                    }
+                    else
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Rise;
+                        break;
+                    }           
+                case 4:
+                     num = Random.Range(0.0f, 10.0f);
+                    if (num < 4.0f)
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Static;
+                        break;
+                    }
+                    else if (num < 8 && num >= 4)
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Rise;
+                        break;
+                    }
+                    else
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Rotate;
+                        break;
+                    }
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    num = Random.Range(0.0f, 10.0f);
+                    if (num < 3.0f)
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Static;
+                        break;
+                    }
+                    else if (num < 6 && num >= 3)
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Rise;
+                        break;
+                    }
+                    else
+                    {
+                        pipe.GetComponent<Pipe>().pipeType = Pipe.PipeType.Rotate;
+                        break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+           
         }
 
     }

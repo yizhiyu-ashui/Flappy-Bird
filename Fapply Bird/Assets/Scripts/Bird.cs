@@ -72,8 +72,12 @@ public class Bird : MonoBehaviour
         if (collision.gameObject.tag == TAG.Point)
         {
             //TODO 碰到得分板，加分处理
-            UIManager.Instance.SetCurrentScore(++GameManager.Instance.score);
-            SoundPlay(Sound.Point);
+            SoundPlay(Sound.Point);  //得分音效
+            int score = ++GameManager.Instance.score;
+            UIManager.Instance.SetCurrentScore(score); //显示当前分数
+            GameManager.Instance.CalculatedRank(score);
+
+
         }
     }
 
