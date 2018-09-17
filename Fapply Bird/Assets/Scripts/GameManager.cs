@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 整个游戏的管理者
@@ -15,8 +17,9 @@ public class GameManager : MonoSingle<GameManager>
 
     private AudioSource audio;
     public List<AudioClip> clips;
-
-    public float moveSpeed;
+    public float force;//弹跳力度
+    public float moveSpeed;  //障碍物的移动速度
+    public int score; //当前分数
 
     protected override void Awake()
     {
@@ -48,10 +51,12 @@ public class GameManager : MonoSingle<GameManager>
     }
 
     /// <summary>
-    /// 开始游戏（初始化场景等一切需要重置的）
+    /// 重新开始游戏（初始化场景等一切需要重置的）
     /// </summary>
-    public void PlayGame()
+    public void RePlayGame()
     {
-
+        //TODO 重新加载一次当前场景
+        Thread.Sleep(1000); //等待1s
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

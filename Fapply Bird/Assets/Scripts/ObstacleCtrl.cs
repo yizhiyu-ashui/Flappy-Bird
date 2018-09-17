@@ -13,8 +13,8 @@ public class ObstacleCtrl : MonoBehaviour {
 	}
 	
 	void Update () {
-	    //if (GameManager.Instance.isOver)
-	    //    return;
+        if (GameManager.Instance.isOver)
+            return;
         if (GameManager.Instance.isMove)
 	    {
 	        HorizontalMove();

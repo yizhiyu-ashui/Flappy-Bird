@@ -48,10 +48,8 @@ public class Pipe : MonoBehaviour
 	
 	void Update ()
 	{
-
 	    Rise();
 	    Rotate();
-   
 	}
 
     /// <summary>
