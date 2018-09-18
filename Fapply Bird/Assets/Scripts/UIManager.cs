@@ -11,8 +11,10 @@ public class UIManager : MonoSingle<UIManager>
     public Text scoreTxt;       //本场分数
     public Text bestScoreTxt;   //最佳分数
     public Text currentSocreTxt; //当前分数
+    public GameObject audioBtn;
+    public Sprite[] audioImg;
 
-	void Start ()
+    void Start ()
 	{
 	    HideUI(GameOverUI);
 	    SetScore(0);
@@ -85,5 +87,20 @@ public class UIManager : MonoSingle<UIManager>
 
         SceneManager.LoadScene("Main");
         GameManager.Instance.force = force;
+    }
+    public void SwitchAudio()
+    {
+        if (GameManager.Instance.audio.mute)
+        {
+            GameManager.Instance.audio.mute = false;
+            audioBtn.GetComponent<Image>().sprite = audioImg[0];
+        }
+        else
+        {
+            GameManager.Instance.audio.mute = true;
+            audioBtn.GetComponent<Image>().sprite = audioImg[1];
+        }
+
+
     }
 }

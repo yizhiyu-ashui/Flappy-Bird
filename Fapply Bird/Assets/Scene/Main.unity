@@ -924,6 +924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOver: 0
   isMove: 1
+  audio: {fileID: 0}
   clips: []
   force: 0
   moveSpeed: 0.5
@@ -962,7 +963,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 342.96008
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1512,7 +1513,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2102,11 +2103,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4328063316416486, guid: 4de15a60f83ea6c4fb8a68a1027140ca, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.933
+      value: -2.649
       objectReference: {fileID: 0}
     - target: {fileID: 4328063316416486, guid: 4de15a60f83ea6c4fb8a68a1027140ca, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.209
+      value: 0.189
       objectReference: {fileID: 0}
     - target: {fileID: 4328063316416486, guid: 4de15a60f83ea6c4fb8a68a1027140ca, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2150,8 +2151,9 @@ GameObject:
   - component: {fileID: 1143980608}
   - component: {fileID: 1143980610}
   - component: {fileID: 1143980609}
+  - component: {fileID: 1143980611}
   m_Layer: 5
-  m_Name: audio
+  m_Name: audioBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2208,6 +2210,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1143980607}
+--- !u!114 &1143980611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1143980607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1143980609}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2101133425}
+        m_MethodName: SwitchAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1178186517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3391,8 +3445,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a760d0f19e64b4d8ca76e21e873f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapUI: {fileID: 0}
+  tapUI: {fileID: 1529003465}
   GameOverUI: {fileID: 33303373}
   scoreTxt: {fileID: 1178186519}
   bestScoreTxt: {fileID: 1562195836}
   currentSocreTxt: {fileID: 1732918425}
+  audioBtn: {fileID: 1143980607}
+  audioImg:
+  - {fileID: 21300000, guid: dcf9c39ebda1f98449737c74e9edbb60, type: 3}
+  - {fileID: 21300000, guid: 1889d4d85be2c2f4992cfaec7df3b2ca, type: 3}

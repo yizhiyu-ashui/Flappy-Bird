@@ -14,8 +14,8 @@ public class GameManager : MonoSingle<GameManager>
     public bool isOver = false; //判断游戏结束
     [HideInInspector]
     public bool isMove = true; //判断管道平移
-
-    private AudioSource audio;
+    
+    public AudioSource audio;
     public List<AudioClip> clips;
     public float force;//弹跳力度
     public float moveSpeed;  //障碍物的移动速度
@@ -31,6 +31,7 @@ public class GameManager : MonoSingle<GameManager>
     {
         audio = this.GetComponent<AudioSource>();
         audio.loop = false;  //默认音效死不循环的
+        audio.mute = false;
     }
 
     /// <summary>

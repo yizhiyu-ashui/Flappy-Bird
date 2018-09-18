@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 public class Bird : MonoBehaviour
@@ -27,10 +28,11 @@ public class Bird : MonoBehaviour
 	    if (GameManager.Instance.isOver)
 	        return;
 
-	    if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+	    if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
 	    {
 	        AddForce(force);
-	    }
+        }
+
 	}
     /// <summary>
     /// 添加力
